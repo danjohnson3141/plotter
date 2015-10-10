@@ -43,7 +43,8 @@ class Plot
         lines[i] = (' ' * x2_y2[0]) + ('#' * (x1_y1[0] - (x2_y2[0] - 1))) unless right?
       end
     end
-    lines.each { |line| puts line }
+    # lines.each { |line| puts line }
+    lines
   end
 
   def right?
