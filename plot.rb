@@ -1,5 +1,3 @@
-# TODO: Improve class to allow for plotting of more then just upper-left to lower-right
-
 class Plot
   attr_reader :file_contents, :x1_y1, :x2_y2
 
@@ -29,21 +27,22 @@ class Plot
     puts direction + "\n"
   end
 
-  def draw(info)
+  def output(info = false)
     show_info if info
+
     started = false
-      lines = []
-      (x2_y2[1] + 1).times do |i|
+    lines = []
+
+    (x2_y2[1] + 1).times do |i|
       if x1_y1[1] == i || started
         lines[i] = (' ' * x1_y1[0]) + '#'
         started = true
       end
+
+      # last row of the input file
       if x2_y2[1] == i
-        if direction == 'right'
-          lines[i] += ('#' * (x2_y2[0] - (x1_y1[0] - 1)))
-        else
-          lines[i] = (' ' * x2_y2[0]) + ('#' * (x1_y1[0] - (x2_y2[0] - 1)))
-        end
+        lines[i] += ('#' * (x2_y2[0] - (x1_y1[0] - 1))) if direction == 'right'
+        lines[i] = (' ' * x2_y2[0]) + ('#' * (x1_y1[0] - (x2_y2[0] - 1))) if direction == 'left'
       end
     end
     lines.each { |line| puts line }
@@ -54,17 +53,8 @@ class Plot
     'left'
   end
 
-  def check_file?
-    show_info
-    x1_y1[0] < x2_y2[0]
-  end
-
   def sep(num = 40)
     '-' * 40
   end
 
-  def output(info = false)
-    # return unless check_file?
-    draw(info)
-  end
 end
