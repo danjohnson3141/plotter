@@ -45,3 +45,4 @@ Output: Direction: right
   #
   ###########
 ```
+Future improvements might include a variable number of points.
