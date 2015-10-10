@@ -1,5 +1,5 @@
 # Plotter
-<img src='http://s11.postimg.org/smkw0aneb/phase_free_damped.png' border='0' alt="phase free damped" style="max-height: 300px"/>
+<img src='http://s11.postimg.org/smkw0aneb/phase_free_damped.png' border='0' alt="phase free damped" />
 
 This is from a code challenge to read an input file with two points designated by pound signs (#) and create an output file (or just stdout) that would connect the two points.
 
@@ -24,7 +24,7 @@ This is from a code challenge to read an input file with two points designated b
   ###########
 
 ```
-My approach was to create a class called Plot which would do all the work. As you can see in `rf_test.rb` all you need to do is require `plot.rb` and then instantiate it with the name of a file to be processed. The output method takes an optional boolean param to show additional information (good for debugging).
+My approach was to create a class called Plot which would do all the work. As you can see in `rf_test.rb` all you need to do is require `plot.rb` and then instantiate it with the name of a file to be processed. The output method takes an optional boolean param to show additional information (good for debugging). The method can handle both right and left facing patterns. Currently on two points can be processed.
 
 ### Sample output:
 ```
@@ -45,4 +45,4 @@ Output: Direction: right
   #
   ###########
 ```
-Future improvements might include a variable number of points.
+Future improvements could include a variable number of points, custom point characters, and much more.
