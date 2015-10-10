@@ -20,11 +20,9 @@ class Plot
   end
 
   def show_info
-    print "Coordinates:\n#{sep}\n"
+    print "\n#{sep}\nCoordinates:\n"
     puts "x1: #{x1_y1[0].to_s.rjust(3)}, y1: #{x1_y1[1].to_s.rjust(3)}"
-    puts "x2: #{x2_y2[0].to_s.rjust(3)}, y2: #{x2_y2[1].to_s.rjust(3)}"
-    puts "#{sep}\nOutput:\n#{sep}\n"
-    puts direction + "\n"
+    puts "x2: #{x2_y2[0].to_s.rjust(3)}, y2: #{x2_y2[1].to_s.rjust(3)}\n#{sep}"
   end
 
   def output(info = false)
@@ -41,16 +39,15 @@ class Plot
 
       # last row of the input file
       if x2_y2[1] == i
-        lines[i] += ('#' * (x2_y2[0] - (x1_y1[0] - 1))) if direction == 'right'
-        lines[i] = (' ' * x2_y2[0]) + ('#' * (x1_y1[0] - (x2_y2[0] - 1))) if direction == 'left'
+        lines[i] += ('#' * (x2_y2[0] - (x1_y1[0] - 1))) if right?
+        lines[i] = (' ' * x2_y2[0]) + ('#' * (x1_y1[0] - (x2_y2[0] - 1))) unless right?
       end
     end
     lines.each { |line| puts line }
   end
 
-  def direction
-    return 'right' if x1_y1[0] < x2_y2[0]
-    'left'
+  def right?
+    x1_y1[0] < x2_y2[0]
   end
 
   def sep(num = 40)
