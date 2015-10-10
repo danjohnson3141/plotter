@@ -37,10 +37,10 @@ describe "Plot" do
       expect(plot[8]). to eq "  ###########"
     end
 
-    it "check output with file input2.txt" do
+    xit "check output with file input2.txt" do
     end
 
-    it "check output with file input3.txt" do
+    xit "check output with file input3.txt" do
     end
   end
 
