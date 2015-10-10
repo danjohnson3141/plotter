@@ -1,4 +1,5 @@
 # Plotter
+<img src='http://s18.postimg.org/p4a39wzh5/phase_free_damped.png' border='0' alt="phase free damped" style="max-height: 300px"/>
 
 This is from a code challenge to read an input file with two pound signs in it and create an output file (or just stdout) that would connect the two points.
 
