@@ -1,7 +1,9 @@
 class Plot
-  attr_reader :file_contents, :x1_y1, :x2_y2
+  attr_reader :file_contents, :x1_y1, :x2_y2, :filename
 
   def initialize(filename)
+    @filename = filename
+    return nil unless File.exists? filename 
     @file_contents = File.read(filename).split("\n")
     @x1_y1 = find_point(1)
     @x2_y2 = find_point(2)
@@ -26,6 +28,7 @@ class Plot
   end
 
   def output(info = false)
+    return nil unless File.exists? filename
     show_info if info
 
     started = false
